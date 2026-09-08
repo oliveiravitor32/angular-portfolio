@@ -2,19 +2,63 @@
 	<ul class="projects__list">
 		<li
 			class="projects__item"
-			*ngFor="
-				let project of projectsData.projects.slice(0, limit);
-				let i = index
-			"
+			*ngFor="let project of visibleProjects; let i = index; trackBy: trackByIndex"
 		>
 			<article class="project-card">
 				<div class="project-card__image-wrapper">
-					<img
-						class="project-card__image"
-						ngSrc="{{ project.img_url }}"
-						fill
-						[alt]="'Imagem do projeto ' + project.title"
-					/>
+					<button
+						type="button"
+						class="project-card__image-button"
+						[attr.aria-label]="'Ampliar as imagens de ' + project.title"
+						(click)="openGallery(i)"
+					>
+						<img
+							class="project-card__image"
+							[src]="project.img_urls[activeImageIndexes[i]]"
+							[alt]="'Imagem do projeto ' + project.title"
+							loading="lazy"
+						/>
+					</button>
+
+					<ng-container *ngIf="project.img_urls.length > 1">
+						<button
+							type="button"
+							class="project-card__carousel-nav project-card__carousel-nav--prev"
+							aria-label="Imagem anterior"
+							(click)="previousImage(i)"
+						>
+							&#8249;
+						</button>
+						<button
+							type="button"
+							class="project-card__carousel-nav project-card__carousel-nav--next"
+							aria-label="Próxima imagem"
+							(click)="nextImage(i)"
+						>
+							&#8250;
+						</button>
+
+						<ul class="project-card__carousel-dots">
+							<li
+								*ngFor="
+									let image of project.img_urls;
+									let imageIndex = index;
+									trackBy: trackByIndex
+								"
+							>
+								<button
+									type="button"
+									class="project-card__carousel-dot"
+									[class.project-card__carousel-dot--active]="
+										imageIndex === activeImageIndexes[i]
+									"
+									[attr.aria-label]="'Ir para a imagem ' + (imageIndex + 1)"
+									[attr.aria-current]="imageIndex === activeImageIndexes[i]"
+									(click)="goToImage(i, imageIndex)"
+								></button>
+							</li>
+						</ul>
+					</ng-container>
 				</div>
 
 				<div class="project-card__content">
@@ -72,3 +116,12 @@
 		</li>
 	</ul>
 </div>
+
+<app-project-gallery-modal
+	*ngIf="galleryProject"
+	[images]="galleryProject.img_urls"
+	[title]="galleryProject.title"
+	[startIndex]="galleryStartIndex"
+	(closed)="closeGallery()"
+	(indexChanged)="onGalleryIndexChanged($event)"
+></app-project-gallery-modal>

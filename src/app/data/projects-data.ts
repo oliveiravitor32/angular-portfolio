@@ -3,7 +3,21 @@ import { IProjectsData } from '../interfaces/projects/projects-data.interface';
 export const ProjectsData: IProjectsData = {
 	projects: [
 		{
-			img_url: '../../../assets/images/project_game_library.png',
+			img_urls: [
+				'assets/images/project_pdf_reader_home.png',
+				'assets/images/project_pdf_reader_original.png',
+				'assets/images/project_pdf_reader_reading_mode.png',
+			],
+			title: 'Leitor de PDF customizável',
+			description:
+				'Leitor de PDF que permite ajustar cores, fontes e espaçamento para leituras longas, com modo leitura que extrai o texto e o exibe como um ebook. Roda inteiramente no navegador, sem enviar arquivos para nenhum servidor.',
+			technologies: ['React', 'TypeScript', 'Tailwind', 'pdf.js', 'Vite'],
+			code_url:
+				'https://github.com/oliveiravitor32/leitor-de-pdf-customizavel_react',
+			demo_url: 'https://leitor-de-pdf-customizavel-react.vercel.app/',
+		},
+		{
+			img_urls: ['assets/images/project_game_library.png'],
 			title: 'Biblioteca de jogos',
 			description:
 				'O projeto Biblioteca de Jogos é um website desenvolvido em Angular 17, integrado com a API RAWG Video Games Database.',
@@ -14,7 +28,7 @@ export const ProjectsData: IProjectsData = {
 				'https://biblioteca-de-jogos-angular-oliveiravitor32s-projects.vercel.app/',
 		},
 		{
-			img_url: '../../../assets/images/project_pokedex_angular.png',
+			img_urls: ['assets/images/project_pokedex_angular.png'],
 			title: 'Pokédex',
 			description:
 				'Projeto de uma pokédex contruída com Angular e com a PokeApi(API do pokemon).',
@@ -23,7 +37,7 @@ export const ProjectsData: IProjectsData = {
 			demo_url: 'https://angular-pokedex-umber.vercel.app/',
 		},
 		{
-			img_url: '../../../assets/images/project_note_app_angular.png',
+			img_urls: ['assets/images/project_note_app_angular.png'],
 			title: 'Lista de tarefas',
 			description:
 				'Projeto Bloco de Notas (NoteApp) construído utilizando Angular com navegação de página única (single page application) e possibilita buscas por notas, criar, deletar e editar notas.',
@@ -32,15 +46,16 @@ export const ProjectsData: IProjectsData = {
 			demo_url: 'https://note-app-oliveiravitor32.vercel.app/',
 		},
 		{
-			img_url: '../../../assets/images/project_shopping_cart_react.png',
+			img_urls: ['assets/images/project_shopping_cart_react.png'],
 			title: 'Carrinho de compras',
 			description:
 				'Projeto Carrinho de Compras (Shopping Cart) construído com ReactJS utilizando a API do Mercado Livre, desenvolvido com o canal Manual do Dev no Youtube.',
 			technologies: ['React', 'JavaScript', 'HTML', 'CSS'],
-			code_url: 'https://github.com/oliveiravitor32/arquivado_carrinho-de-compras_react',
+			code_url:
+				'https://github.com/oliveiravitor32/arquivado_carrinho-de-compras_react',
 		},
 		{
-			img_url: '../../../assets/images/project_to_do_list_react.png',
+			img_urls: ['assets/images/project_to_do_list_react.png'],
 			title: 'Lista de tarefas',
 			description:
 				'Simples projeto de uma lista de tarefas (To Do List) utilizando ReactJS, que permite criar, concluir, editar, e também deletar tarefas.',
@@ -49,13 +64,15 @@ export const ProjectsData: IProjectsData = {
 			demo_url: 'https://to-do-list-react-js-oliveiravitor32.vercel.app/',
 		},
 		{
-			img_url: '../../../assets/images/project_old_porfolio.png',
+			img_urls: ['assets/images/project_old_porfolio.png'],
 			title: 'Antigo portfólio',
 			description:
 				'Meu antigo portfólio com página responsiva, implementações de animações via CSS e JS e com formulário funcional. Desenvolvido com o curso "Html-Css-Feliz" de Marco Bruno Dev no Youtube.',
 			technologies: ['HTML', 'CSS', 'JavaScript'],
-			code_url: 'https://github.com/oliveiravitor32/arquivado_portfolio_html-css',
-			demo_url: 'https://oliveiravitor32.github.io/arquivado_portfolio_html-css/',
+			code_url:
+				'https://github.com/oliveiravitor32/arquivado_portfolio_html-css',
+			demo_url:
+				'https://oliveiravitor32.github.io/arquivado_portfolio_html-css/',
 		},
 	],
 };

@@ -1,0 +1,73 @@
+<div
+	class="gallery-modal"
+	role="dialog"
+	aria-modal="true"
+	[attr.aria-label]="'Imagens do projeto ' + title"
+	(click)="onBackdropClick($event)"
+>
+	<div class="gallery-modal__container">
+		<header class="gallery-modal__header">
+			<h2 class="gallery-modal__title">{{ title }}</h2>
+			<button
+				#closeButton
+				type="button"
+				class="gallery-modal__close"
+				aria-label="Fechar galeria"
+				(click)="close()"
+			>
+				&times;
+			</button>
+		</header>
+
+		<div class="gallery-modal__stage">
+			<button
+				*ngIf="hasMultipleImages"
+				type="button"
+				class="gallery-modal__nav gallery-modal__nav--prev"
+				aria-label="Imagem anterior"
+				(click)="previous()"
+			>
+				&#8249;
+			</button>
+
+			<img
+				class="gallery-modal__image"
+				[src]="images[currentIndex]"
+				[alt]="
+					'Imagem ' +
+					(currentIndex + 1) +
+					' do projeto ' +
+					title
+				"
+			/>
+
+			<button
+				*ngIf="hasMultipleImages"
+				type="button"
+				class="gallery-modal__nav gallery-modal__nav--next"
+				aria-label="Próxima imagem"
+				(click)="next()"
+			>
+				&#8250;
+			</button>
+		</div>
+
+		<footer class="gallery-modal__footer" *ngIf="hasMultipleImages">
+			<ul class="gallery-modal__dots">
+				<li *ngFor="let image of images; let i = index; trackBy: trackByIndex">
+					<button
+						type="button"
+						class="gallery-modal__dot"
+						[class.gallery-modal__dot--active]="i === currentIndex"
+						[attr.aria-label]="'Ir para a imagem ' + (i + 1)"
+						[attr.aria-current]="i === currentIndex"
+						(click)="goTo(i)"
+					></button>
+				</li>
+			</ul>
+			<span class="gallery-modal__counter">
+				{{ currentIndex + 1 }} / {{ images.length }}
+			</span>
+		</footer>
+	</div>
+</div>

@@ -124,3 +124,7 @@ h3 {
 	font-weight: var(--font-weight-bold);
 	line-height: 1.4;
 }
+
+body.modal-open {
+	overflow: hidden;
+}
