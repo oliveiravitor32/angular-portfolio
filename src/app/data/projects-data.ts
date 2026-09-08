@@ -28,6 +28,19 @@ export const ProjectsData: IProjectsData = {
 				'https://biblioteca-de-jogos-angular-oliveiravitor32s-projects.vercel.app/',
 		},
 		{
+			img_urls: [
+				'assets/images/project_the_fallen_piolin_gameplay.png',
+				'assets/images/project_the_fallen_piolin_menu.png',
+				'assets/images/project_the_fallen_piolin_controls.png',
+			],
+			title: 'The Fallen Piolin',
+			description:
+				'Jogo de plataforma 2D com luta de chefe, em que o Piolin precisa derrotar o Espalha Lixo antes que ele incendeie a floresta. O inimigo tem IA própria com máquina de estados, que escolhe entre atear fogo no cenário e partir para cima do jogador. Mapa montado no Tiled e interface em pixel art feita do zero.',
+			technologies: ['Java', 'FXGL', 'JavaFX', 'Maven', 'Tiled'],
+			code_url:
+				'https://github.com/oliveiravitor32/the-fallen-piolin_jogo_java',
+		},
+		{
 			img_urls: ['assets/images/project_pokedex_angular.png'],
 			title: 'Pokédex',
 			description:
